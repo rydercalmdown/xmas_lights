@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    image: gcr.io/radical-sloth/crowdsourced-christmas-lights:0.0.1
+    entrypoint: python
+    command: app.py
+    volumes:
+      - ./server/:/code
+    environment:
+      - PORT=8000
+      - PYTHON_UNBUFFERED=1
+    ports:
+      - "8000:8000"
